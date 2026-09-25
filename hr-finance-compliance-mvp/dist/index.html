@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="人力与财务合规流程演示：薪资数据检查、报告草稿、人工审批和证据导出。">
+  <title>PeopleLedger · 人力财务合规工作台</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%2315233c'/%3E%3Cpath d='M8 8h8a6 6 0 010 12h-3v5H8zm5 5v3h3a1.5 1.5 0 000-3z' fill='%2358dfc5'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="core.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+  <aside class="sidebar">
+    <a class="brand" href="#overview" aria-label="PeopleLedger 首页"><span class="brand-icon">P</span><span>PeopleLedger<small>人力与财务合规平台</small></span></a>
+    <div class="workspace"><span class="workspace-icon">PL</span><div>演示公司<small>虚构业务数据 · SGD</small></div><span class="demo-tag">DEMO</span></div>
+    <div class="nav-label">工作空间</div>
+    <nav aria-label="主导航">
+      <a href="#overview" data-view="overview"><span aria-hidden="true">▦</span>工作总览</a>
+      <a href="#payroll" data-view="payroll"><span aria-hidden="true">▤</span>员工与薪资</a>
+      <a href="#checks" data-view="checks"><span aria-hidden="true">✓</span>数据检查<span id="nav-count" class="nav-count"></span></a>
+      <a href="#reports" data-view="reports"><span aria-hidden="true">▧</span>报告与审批</a>
+      <a href="#evidence" data-view="evidence"><span aria-hidden="true">◷</span>证据与记录</a>
+    </nav>
+    <div class="sidebar-bottom"><div class="local-label">本机演示模式</div><p>数据仅保存在当前浏览器。<br>角色切换用于展示审批流程。</p><button id="reset" class="sidebar-reset">重置演示数据</button></div>
+  </aside>
+  <div class="shell">
+    <header class="topbar"><div class="breadcrumb">工作空间 <span>/</span> <strong id="crumb">工作总览</strong></div><div class="role-control"><label for="role">演示角色</label><select id="role"><option value="hr">HR 专员</option><option value="finance">财务复核人</option><option value="director">董事审批人</option><option value="auditor">只读查看人</option></select><span id="avatar" class="avatar" aria-hidden="true">HR</span></div></header>
+    <main id="main" tabindex="-1"></main>
+    <footer>PeopleLedger MVP <span>·</span> 检查结果仅覆盖演示规则，不代表法定合规判断。报告由本地模板生成。</footer>
+  </div>
+  <dialog id="modal" aria-labelledby="dialog-title"></dialog>
+  <div id="toast" role="status" aria-live="polite"></div>
+  <div id="print-area"></div>
+  <input id="import-file" type="file" accept=".csv,text/csv" hidden>
+</body>
+</html>
