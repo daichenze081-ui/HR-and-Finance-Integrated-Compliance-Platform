@@ -1,0 +1,11 @@
+node_modules/
+.env
+.env.*
+!.env.example
+.DS_Store
+.sites-runtime/
+coverage/
+*.log
+
+.review/
+var/

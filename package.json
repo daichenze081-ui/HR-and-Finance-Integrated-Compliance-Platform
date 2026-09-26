@@ -1,0 +1,22 @@
+{
+  "name": "people-ledger-compliance-mvp",
+  "version": "2.0.0",
+  "private": true,
+  "description": "HR and finance review platform: Node.js API, PostgreSQL persistence, deterministic checks, Bedrock agent loop, human approvals and sealed evidence exports",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "start:static": "node scripts/serve.cjs",
+    "migrate": "node scripts/migrate.js",
+    "seed": "node scripts/seed.js",
+    "reset": "node scripts/migrate.js --reset && node scripts/seed.js",
+    "test": "node --test --test-concurrency=1 tests/*.test.cjs",
+    "check": "node scripts/check.js"
+  },
+  "dependencies": {
+    "pg": "8.13.1"
+  },
+  "engines": {
+    "node": ">=24"
+  }
+}
