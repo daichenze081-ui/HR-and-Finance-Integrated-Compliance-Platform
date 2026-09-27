@@ -1,0 +1,13 @@
+# Private credentials and local build dependencies for presentation/deployment work.
+.deployment-tools/
+.presentation-build/
+.document-build/
+.chart-data-*/
+.pnpm-store/
+node_modules/
+deliverables/PeopleLedger_应用登录信息.txt
+
+# Local runtime data and machine-specific verification output.
+/var/
+/deployment/showcase/download-sources.local.json
+/deployment/showcase/qa/
