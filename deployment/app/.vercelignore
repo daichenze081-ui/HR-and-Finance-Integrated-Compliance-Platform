@@ -1,0 +1,12 @@
+.env
+.env.*
+.vercel/
+var/
+node_modules/
+tests/
+examples/
+SOURCE-MANIFEST.json
+README.md
+*.log
+*.sqlite*
+*.db

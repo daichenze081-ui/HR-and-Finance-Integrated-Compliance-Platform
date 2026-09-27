@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Server-connected HR and finance review workspace: authenticated roles, deterministic checks, agent drafting, human approvals and sealed evidence exports.">
+  <title>PeopleLedger · Server workspace</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%2315233c'/%3E%3Cpath d='M8 8h8a6 6 0 010 12h-3v5H8zm5 5v3h3a1.5 1.5 0 000-3z' fill='%2358dfc5'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="api.js"></script>
+  <script defer src="workspace.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <aside class="sidebar">
+    <a class="brand" href="#overview" aria-label="PeopleLedger workspace home"><span class="brand-icon">P</span><span>PeopleLedger<small>Server workspace</small></span></a>
+    <div class="workspace">
+      <span class="workspace-icon">PL</span>
+      <div id="case-label">Loading<small id="case-sub">Connecting to the server</small></div>
+      <span class="demo-tag" id="db-tag">API</span>
+    </div>
+    <div class="nav-label">Review workflow</div>
+    <nav aria-label="Main navigation">
+      <a href="#overview" data-view="overview"><span aria-hidden="true">▦</span>Overview</a>
+      <a href="#payroll" data-view="payroll"><span aria-hidden="true">▤</span>People &amp; payroll</a>
+      <a href="#payments" data-view="payments"><span aria-hidden="true">≡</span>Payment ledger</a>
+      <a href="#reconciliation" data-view="reconciliation"><span aria-hidden="true">⇄</span>Bank reconciliation</a>
+      <a href="#checks" data-view="checks"><span aria-hidden="true">✓</span>Data checks<span id="nav-count" class="nav-count"></span></a>
+      <a href="#evidence" data-view="evidence"><span aria-hidden="true">🗎</span>Evidence files</a>
+      <a href="#agent" data-view="agent"><span aria-hidden="true">◍</span>Agent tasks</a>
+      <a href="#reports" data-view="reports"><span aria-hidden="true">▧</span>Reports &amp; approvals</a>
+      <a href="#recruitment" data-view="recruitment"><span aria-hidden="true">◑</span>Recruitment</a>
+      <a href="#access" data-view="access"><span aria-hidden="true">◷</span>Access &amp; activity</a>
+      <a href="#exports" data-view="exports"><span aria-hidden="true">↓</span>Exports</a>
+    </nav>
+    <div class="sidebar-bottom">
+      <div class="local-label">Server-authoritative</div>
+      <p>Records, checks and approvals are held and enforced by the API.<br>Synthetic data only.</p>
+      <a class="sidebar-reset" href="demo/index.html">Open the browser-local demo</a>
+    </div>
+  </aside>
+  <div class="shell">
+    <header class="topbar">
+      <div class="breadcrumb">Workspace <span>/</span> <strong id="crumb">Overview</strong></div>
+      <div class="role-control">
+        <span id="session-label" class="muted">Not signed in</span>
+        <span id="avatar" class="avatar" aria-hidden="true">–</span>
+        <button id="signout" class="btn small" type="button" hidden>Sign out</button>
+      </div>
+    </header>
+    <main id="main" tabindex="-1"></main>
+    <footer>PeopleLedger server workspace <span>·</span> Configurable demonstration rules. Results are not legal, tax or statutory compliance determinations.</footer>
+  </div>
+  <dialog id="modal" aria-labelledby="dialog-title"></dialog>
+  <div id="toast" role="status" aria-live="polite"></div>
+  <div id="print-area"></div>
+</body>
+</html>

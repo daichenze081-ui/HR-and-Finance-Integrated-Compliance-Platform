@@ -2,22 +2,21 @@
   "name": "people-ledger-compliance-mvp",
   "version": "2.0.0",
   "private": true,
-  "description": "HR and finance local workspace with Excel/CSV imports, reconciliation, evidence and a tool-calling AI Agent",
+  "description": "HR and finance review platform: Node.js API, PostgreSQL persistence, deterministic checks, Bedrock agent loop, human approvals and sealed evidence exports",
+  "main": "server/index.js",
   "scripts": {
-    "start": "node --env-file-if-exists=.env scripts/serve.cjs",
-    "test": "node --test tests/*.test.cjs",
-    "check": "node --check dist/core.js && node --check dist/app.js && node --check server/http.cjs && node --check server/agent.cjs"
+    "start": "node server/index.js",
+    "start:static": "node scripts/serve.cjs",
+    "migrate": "node scripts/migrate.js",
+    "seed": "node scripts/seed.js",
+    "reset": "node scripts/migrate.js --reset && node scripts/seed.js",
+    "test": "node --test --test-concurrency=1 tests/*.test.cjs",
+    "check": "node scripts/check.js"
+  },
+  "dependencies": {
+    "pg": "8.13.1"
   },
   "engines": {
     "node": ">=24"
-  },
-  "dependencies": {
-    "@aws-sdk/client-bedrock-runtime": "3.1140.0",
-    "exceljs": "4.4.0"
-  },
-  "overrides": {
-    "exceljs": {
-      "uuid": "11.1.1"
-    }
   }
 }

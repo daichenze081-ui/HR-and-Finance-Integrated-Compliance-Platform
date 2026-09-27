@@ -1,0 +1,11 @@
+{
+  "name": "peopleledger-project-showcase",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "prepare": "node scripts/prepare-assets.cjs",
+    "start": "node scripts/serve.cjs",
+    "test": "node scripts/test-browser.cjs"
+  },
+  "engines": { "node": ">=20" }
+}

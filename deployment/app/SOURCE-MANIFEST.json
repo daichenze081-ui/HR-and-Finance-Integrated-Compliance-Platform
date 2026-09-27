@@ -1,0 +1,366 @@
+{
+  "source": "PeopleLedger-v2",
+  "note": "Hashes identify source inputs before documented cloud overlays. No environment, runtime database, credentials or local evidence are copied.",
+  "files": [
+    {
+      "path": "server/adapters/aws/sigv4.js",
+      "sha256": "9f9d20cf614aa3d4acd17edf4970b85eeea4b936c8ad56cf8cbc5ff976622d8f"
+    },
+    {
+      "path": "server/adapters/db/index.js",
+      "sha256": "c4a5755355660a1ba8e0425e42bdf262d4f85a02dac588d565abf6b21f31ce11"
+    },
+    {
+      "path": "server/adapters/db/memory.js",
+      "sha256": "3399d7ccee73c148036b23396445d81cf98a2507c83751d88de2ef6e617b6967"
+    },
+    {
+      "path": "server/adapters/db/pg.js",
+      "sha256": "380b4700555c9d5bbc9e97507ed3cf4947f595c143fe315dcc9efbc33a033da7"
+    },
+    {
+      "path": "server/adapters/db/schema.js",
+      "sha256": "afb004e6baeb50c37658518f025e09f597864387589f72425ff2ed5e4f48e20a"
+    },
+    {
+      "path": "server/adapters/db/sqlite.js",
+      "sha256": "31b628ef0fb2d9d8bdf187cc5eff6172d47d1281bccf83be022c9bb26ac9a436"
+    },
+    {
+      "path": "server/adapters/model/bedrock.js",
+      "sha256": "e810d3088833c610e8d9f73a18aceaa103c40fb76b8a2ac3836b32c20b19b88a"
+    },
+    {
+      "path": "server/adapters/model/index.js",
+      "sha256": "8e2afbc74fa50087652a51be07edce953abdf0f3135a11c6b59748aa3dd27f59"
+    },
+    {
+      "path": "server/adapters/model/mock.js",
+      "sha256": "510dca62046a682609730ad8e082dd165f24c1ff53d2fd3a14d45801c00ddf80"
+    },
+    {
+      "path": "server/adapters/model/ollama.js",
+      "sha256": "8f8aad088446d279f868bb3ffc6d11f947ad376bcc74cd91459a74120691c82b"
+    },
+    {
+      "path": "server/adapters/storage/index.js",
+      "sha256": "205983e9d8b4e045976133583dfc0b720d2353222b9c0de64f29ac848fca96be"
+    },
+    {
+      "path": "server/adapters/storage/local.js",
+      "sha256": "2806e605a4dd1a7a1582fc4e8871c50349e65346b0be276da5102b27546b380f"
+    },
+    {
+      "path": "server/adapters/storage/s3.js",
+      "sha256": "da6b7bb664b767573d7b8c7aa2d88b35d4a944e0b27ae4047d11c62890e594ce"
+    },
+    {
+      "path": "server/agent/draft.js",
+      "sha256": "a01d455684cea1837cc9273beb41320102e146b4f39d69976b167725d4737f07"
+    },
+    {
+      "path": "server/agent/loop.js",
+      "sha256": "fc34529ad7bcb0a2c1f85d7d85b2ccd6f930a8bf83b76c7790c16b5d3910bd2f"
+    },
+    {
+      "path": "server/agent/prompt.js",
+      "sha256": "18e429f99516c4b646ead4374e5f2dcc18ed08f258f0143671dcb24bf70932a3"
+    },
+    {
+      "path": "server/agent/tools.js",
+      "sha256": "06c7d1a98dc85b3955fd3da9f345b95f46786d6c3a9412728dda947821bf1cdb"
+    },
+    {
+      "path": "server/auth/access.js",
+      "sha256": "a789caeaac0fde1e9b12738023c0146f0384d79ab500fea30217dab0dccd195f"
+    },
+    {
+      "path": "server/auth/passwords.js",
+      "sha256": "9c40e53b24a218bb531190672f52452e7fad35e17638b683a33213ae7527c58d"
+    },
+    {
+      "path": "server/auth/rbac.js",
+      "sha256": "2de9bb9346194d8b80ad5cd09059f81f6c0a53b505a84a5c98307e530f12797c"
+    },
+    {
+      "path": "server/auth/sessions.js",
+      "sha256": "2676219629360d83449953c619516fdd4e1fb5189c0d8e29f3ce1f06f610ded1"
+    },
+    {
+      "path": "server/config.js",
+      "sha256": "dae330f014775f8465834aa07611913d54fca160471a551164de80e339a5c6c4"
+    },
+    {
+      "path": "server/db/migrations/001_core.sql",
+      "sha256": "533bc0d26bf8d280aebde6aa304120fc20e77befe4ac665e22b83ca1d75fdecf"
+    },
+    {
+      "path": "server/db/migrations/002_bank_reconciliation.sql",
+      "sha256": "eb2d003df78713d9e7ddce79fc1183e7eef27561204d9594bbcf31cc7dd96667"
+    },
+    {
+      "path": "server/db/migrations/003_financial_ledger.sql",
+      "sha256": "e90c3dc70130cd580ed413fc4ae743faf30547b16a291993fa6bfabd7e758068"
+    },
+    {
+      "path": "server/db/seed.js",
+      "sha256": "94d955ee66d54bde3fa04bc3511e6354227ef27ef51c203db886411396d92c06"
+    },
+    {
+      "path": "server/http/app.js",
+      "sha256": "4635f34e3d009c3e11ca09237a76128078b67eaff9fbb6ccc5b4b602391c4dda"
+    },
+    {
+      "path": "server/http/context.js",
+      "sha256": "0952be9b6d3991a30d214799aa590a311b5c71d9f98c1fd6b216a040516b1766"
+    },
+    {
+      "path": "server/http/routes.js",
+      "sha256": "e494227a98733a62717e2954f5f87c5c6f1d1ecfe8773b5088629b6d838985be"
+    },
+    {
+      "path": "server/index.js",
+      "sha256": "7c4847a2e85d2d2aa7a46018333f97717506d02f6e9ac4d5938ce0b02ac3a90d"
+    },
+    {
+      "path": "server/lib/clock.js",
+      "sha256": "1cc0fea4306a9df6b0c882cd2adfc3584a08be4867295b80d05bc7e346d920ba"
+    },
+    {
+      "path": "server/lib/csv.js",
+      "sha256": "3252a72286bf1004b3ae06a3305e5da43e42c46ce49e96beff4e276d3b6c23fc"
+    },
+    {
+      "path": "server/lib/errors.js",
+      "sha256": "8eec10d636f51e49860262118ccaac7faa80676623d08d33be77aa19d1b71db3"
+    },
+    {
+      "path": "server/lib/hash.js",
+      "sha256": "f0d1721294fd944136ec016cc7636f946f1accfd64d78c4dd3fb221f95a31c43"
+    },
+    {
+      "path": "server/lib/http.js",
+      "sha256": "5b7c4e3dce93d5c058cdbbf59a70beaa424364281d41dee35ef9692de1b807c4"
+    },
+    {
+      "path": "server/lib/ids.js",
+      "sha256": "9c37ef2fe255681d452da09f1f915548b2cc0677a8df0cef9d622a7c813ef3d5"
+    },
+    {
+      "path": "server/lib/jsonschema.js",
+      "sha256": "9da300f3715faf09ea0724ff8bf21562b9838ac42e20c2cc6b80b6bd79ba2391"
+    },
+    {
+      "path": "server/lib/logger.js",
+      "sha256": "4c85dfb5098b616140f138e2007ecaff6dbaf1d2cbf4c7260e1a46d3511bd712"
+    },
+    {
+      "path": "server/lib/money.js",
+      "sha256": "952e33a6c752592108e4cc335513e64191871a0f492b14713c3b9f829da64d5b"
+    },
+    {
+      "path": "server/lib/router.js",
+      "sha256": "9d172b87e8de26e17a03dbb3e7bf420dc34c09e73b9e04b81f3fd68f7296e4b7"
+    },
+    {
+      "path": "server/lib/validate.js",
+      "sha256": "6da84835a2d8729fb2e56a7d7bbf1ec9407345758bde5cedbd943677d6d1ec05"
+    },
+    {
+      "path": "server/lib/xlsx.js",
+      "sha256": "cbf6326bc1d11bbbb9c66b917ae5cf9d96b436afca1faacbc276b3ee1ccd2aab"
+    },
+    {
+      "path": "server/lib/zip.js",
+      "sha256": "a46f0f43ca7da15f8d35bb2da2021c467128e7269b0a8764562f02726c363269"
+    },
+    {
+      "path": "server/rules/registry.js",
+      "sha256": "3ae26139ecc25c93e50fa367d81a3f8d2bd331e899a127db2cc349c503dc8b76"
+    },
+    {
+      "path": "server/services/audit.service.js",
+      "sha256": "28e7fbc5b82b364ebf9ea1af9b260b5bf03b84c0e2c1f67a0173d392bcad249f"
+    },
+    {
+      "path": "server/services/cases.service.js",
+      "sha256": "9d9c8bb4d1ad06960016cf6114ab5995bae73d14c850d6cef760d437728739ab"
+    },
+    {
+      "path": "server/services/checks.service.js",
+      "sha256": "97cc877f99c523ca1f7f9725c470abd1c08bac8ce4e9a5b1e637f1f2e1670040"
+    },
+    {
+      "path": "server/services/evidence.service.js",
+      "sha256": "a39326ee0ee59dc588fb36226f8ce69bcb577c34320618297b20df6929609f01"
+    },
+    {
+      "path": "server/services/export.service.js",
+      "sha256": "0ea1df045416d17c07806f7b74e539117fbc41d23757927be23f2624052dac85"
+    },
+    {
+      "path": "server/services/interviews.service.js",
+      "sha256": "665fbec93573794e35cd0ae82a5bc20dd8ca09403b67d933e6eedc07c2ad07f8"
+    },
+    {
+      "path": "server/services/ledger-source.js",
+      "sha256": "8d2334470c70fe8115b6d61766561106f6ddc980466d9801f242e96ac88a01f9"
+    },
+    {
+      "path": "server/services/payments.service.js",
+      "sha256": "43fa3f315034a245f633801a599ace9d05077d9c732e801ffa3b7b73197cbd0d"
+    },
+    {
+      "path": "server/services/reconciliation.service.js",
+      "sha256": "a90efe37ea616c490b260e508d6f5e6fb1c13d0975b1682bc9df93b113f90542"
+    },
+    {
+      "path": "server/services/records.service.js",
+      "sha256": "f62b6f1c3e2c21d1f5f6d743965a9ec2c68719a5900fbcee58dcd262155e22a8"
+    },
+    {
+      "path": "server/services/recruitment.service.js",
+      "sha256": "e693a29482a4378bb1be2356e65a482822febc661dd064b5f5e4dcda29e125a0"
+    },
+    {
+      "path": "server/services/reports.service.js",
+      "sha256": "531bc77c1adca8c418687e69de9d4f74488a993f38163550fce481a08bc555dc"
+    },
+    {
+      "path": "dist/api.js",
+      "sha256": "a0faf64c59043d62ad791fc70eb5456472a57af412a8f0011dd6c5d5cc4e47ea"
+    },
+    {
+      "path": "dist/demo/app.js",
+      "sha256": "870dc522aa94bbc1e998641a6a78e90172616af7d97c80a09468d2c8d9a31d44"
+    },
+    {
+      "path": "dist/demo/core.js",
+      "sha256": "a817d07556d184c0f491bc3a7c7f78654a2da1e53246d4b66e5b0989460b1063"
+    },
+    {
+      "path": "dist/demo/index.html",
+      "sha256": "b7cc62ff4f5f61cefbcb3d84da0fe9629cb8f06bed5d65fbfd4dc1f20487da1b"
+    },
+    {
+      "path": "dist/demo/styles.css",
+      "sha256": "8e3087e05381063a5e950df3d50f6aa178ee052ab6f90fcd99b59e8b6ef61028"
+    },
+    {
+      "path": "dist/styles.css",
+      "sha256": "9141daecc0aeec9bdcf12c8e0758fc06198f5fc69812469a84db74b5e682bf07"
+    },
+    {
+      "path": "dist/workspace.html",
+      "sha256": "60ea2d15e5917b4c30d21aa9e5c48f4e4b4851d97ff36c2704a931be22fb9a90"
+    },
+    {
+      "path": "dist/workspace.js",
+      "sha256": "91ef92f3c4a0e52ced8b6acdc954c61f010643056e585be33d3b90ba35c04a81"
+    },
+    {
+      "path": "examples/bank-demo.csv",
+      "sha256": "b3a6eda5f454c40815f694d9448c82fb7ab093e02cd737fbe378dc3d3273fe8e"
+    },
+    {
+      "path": "examples/bank-with-mismatch.csv",
+      "sha256": "7ddc27952d8488eed676064f2315920144e49b77bd68bd5ee4b86249301612e9"
+    },
+    {
+      "path": "examples/bank.xlsx",
+      "sha256": "3a80d375e966abb6803e68254fcfc461ba18542ce26ff46eee1453155b5d3980"
+    },
+    {
+      "path": "examples/evidence/INV-001.pdf",
+      "sha256": "28317ea831c01a9314d0656e013255269f659b7a6a50305ce034062fae1398dc"
+    },
+    {
+      "path": "examples/evidence/PAY-202609-001.pdf",
+      "sha256": "5672cc4eaa488c66b154a007910128c1325fb08ed8870de0c9e085faa18a587c"
+    },
+    {
+      "path": "examples/evidence/PAY-202609-002.pdf",
+      "sha256": "3ac70cfff468f51d2bfda5b3fb215910dab0992357dbfd7eaa94610a4555d593"
+    },
+    {
+      "path": "examples/evidence/PAY-202609-003.pdf",
+      "sha256": "72de9080e43150233e942feb40cb7d0768efa285f6260458558f24cbad182b8f"
+    },
+    {
+      "path": "examples/evidence/PAY-202609-004.pdf",
+      "sha256": "5c5d119a9e8a5d39cf3dd8313d0141db06f5c3f1cc0f579206c8d1b4b54fc03a"
+    },
+    {
+      "path": "examples/evidence/PAY-202609-005.pdf",
+      "sha256": "e9a3c27fb06950b540edde814a8e4a0cd0371ef0a522d2828f915a53b1fbe447"
+    },
+    {
+      "path": "examples/evidence/PAY-202609-006.pdf",
+      "sha256": "a578882741d553dbcb3c4063c1ad8c55c67a823f421393cf74e30f68b12a7975"
+    },
+    {
+      "path": "examples/evidence/RENT-001.pdf",
+      "sha256": "22b4264a724dcab404becc503a52e48528c140fd7bf9af0a55b1253497a3e794"
+    },
+    {
+      "path": "examples/ledger-demo.csv",
+      "sha256": "a37a668e7827df8841e7c699f967b1e9f2ed1ab718dae54fdf898333564123b7"
+    },
+    {
+      "path": "examples/ledger.xlsx",
+      "sha256": "f957dffcdca88f63433818db052f8d6a60f923562820ac3e92b9200192098350"
+    },
+    {
+      "path": "examples/payroll-corrected.csv",
+      "sha256": "dfac47527240acccfbdc8a2fa60c48a4314a710bfea0275af27b80e228afe0af"
+    },
+    {
+      "path": "examples/payroll-demo.csv",
+      "sha256": "7f5059c8ffcf4d3eaca3a705e8830ab46c158f50c90292455c3ed8a86b5df029"
+    },
+    {
+      "path": "examples/payroll.xlsx",
+      "sha256": "ff08073f0110d5c3d646dd19e4eca2690458f5a3cdd52f9f735132df58c66ab4"
+    },
+    {
+      "path": "tests/core.test.cjs",
+      "sha256": "7c3af1fb81debffe3eff013564aab808b1053b402fa2003d60b8a34de207e881"
+    },
+    {
+      "path": "tests/helpers.cjs",
+      "sha256": "3093ad0a04cf0df76894b33170e41f25f04f5e40c57a03574fadd8d49bfa9090"
+    },
+    {
+      "path": "tests/server.agent.test.cjs",
+      "sha256": "662d8b2487807bf026545215dac8a10be45f777cc2cab47fc227cd44f9b1ca51"
+    },
+    {
+      "path": "tests/server.api.test.cjs",
+      "sha256": "4c99387ae2d6049065d6e12a990e8cf7830077733c1211618b7ea04c06ba8822"
+    },
+    {
+      "path": "tests/server.finance.test.cjs",
+      "sha256": "6d9aab8463ab35d8718e872e7e2c707f3f1fef1d9ce8aa1e0baa723af4a8c0b3"
+    },
+    {
+      "path": "tests/server.reconciliation.test.cjs",
+      "sha256": "243fc491c00ee85cdaeae5273df05ae57b58af536cceb1a9320cc27370acd120"
+    },
+    {
+      "path": "tests/server.recruitment.test.cjs",
+      "sha256": "b1cb2093231cbaf425b7c5bd1089c8241a8cb0c2f1c0226cd3f718a4df11146d"
+    },
+    {
+      "path": "tests/server.security.test.cjs",
+      "sha256": "9118408a0d5a9416d18e811f70e331db36be5fe4b779084350284e943fe237f4"
+    },
+    {
+      "path": "tests/server.v2.test.cjs",
+      "sha256": "af60158e8703fb7dd7386f9ca25a8fedf4fca7230860f821ea9650c77656b60e"
+    },
+    {
+      "path": "tests/server.workflow.test.cjs",
+      "sha256": "767ba248c0fc123d6c646297a7647121038736f86edc6148f654896006a7ded4"
+    }
+  ]
+}

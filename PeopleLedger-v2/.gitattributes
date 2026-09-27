@@ -1,0 +1,4 @@
+# Preserve attachment bytes when checking out this project on Windows.
+*.pdf binary
+*.xlsx binary
+*.zip binary

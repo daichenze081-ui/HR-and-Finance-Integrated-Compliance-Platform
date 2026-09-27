@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="PeopleLedger HR and Finance Review Platform. 20 English slides with automatic English narration.">
+  <meta name="theme-color" content="#14383b">
+  <title>PeopleLedger · English project presentation</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/en/app.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#player">Skip to presentation</a>
+  <header class="masthead">
+    <a class="brand" href="/en/" aria-label="PeopleLedger home">PeopleLedger<span>PROJECT SHOWCASE</span></a>
+    <nav class="header-actions" aria-label="Languages, app and downloads">
+      <a class="header-link" href="/">Mandarin presentation ↗</a>
+      <a class="app-link" href="https://peopleledger-app.vercel.app" target="_blank" rel="noopener">Open app ↗</a>
+      <a class="header-link" href="#downloads">Downloads ↗</a>
+    </nav>
+  </header>
+  <main>
+    <section class="intro" aria-labelledby="page-title">
+      <div><p class="eyebrow">ENGLISH PROJECT PRESENTATION</p><h1 id="page-title">HR and Finance Review Platform</h1><p class="intro-en">PeopleLedger project demonstration</p></div>
+      <p class="format"><strong id="total-duration">About 19 minutes</strong><span>20 English slides<br>Automatic English narration</span></p>
+    </section>
+
+    <div class="presentation-layout">
+      <section class="presentation-column" aria-label="Presentation player">
+        <div id="player" class="player" tabindex="-1">
+          <div class="screen"><img id="slide-image" width="1600" height="900" alt="Loading presentation slide"></div>
+          <div class="controls">
+            <div class="control-row">
+              <button id="toggle-play" class="primary" type="button" disabled>▶ Start narration</button>
+              <div class="navigation"><button id="previous" type="button" aria-label="Previous slide" disabled>←</button><span id="page-count" aria-live="polite">01 / 20</span><button id="next" type="button" aria-label="Next slide" disabled>→</button></div>
+              <div class="player-options"><button id="mute" type="button" aria-pressed="false">Sound on</button><button id="fullscreen" type="button">Full screen</button></div>
+            </div>
+            <div class="timeline"><span id="elapsed">0:00</span><input id="seek" type="range" min="0" max="100" value="0" step="0.1" aria-label="Slide audio position" disabled><span id="slide-duration">0:00</span></div>
+            <p id="playback-status" class="playback-status" role="status">Loading presentation…</p>
+          </div>
+          <audio id="narration" preload="metadata"></audio>
+        </div>
+        <p class="play-hint">Click Start to enable sound. Slides advance 1.5 seconds after the narration ends.</p>
+        <details class="transcript" open>
+          <summary>English slide transcript</summary>
+          <h2 id="slide-title">Loading…</h2><p id="slide-title-en" lang="en"></p><p id="transcript-text"></p>
+        </details>
+      </section>
+      <aside class="contents" aria-labelledby="contents-title"><div class="contents-heading"><h2 id="contents-title">Contents</h2><p>Jump to a slide</p></div><ol id="slide-list"></ol></aside>
+    </div>
+
+    <section id="downloads" class="downloads" aria-labelledby="downloads-title"><div><p class="eyebrow">TAKE IT WITH YOU</p><h2 id="downloads-title">English presentation downloads</h2><p lang="en">Presentation files and narration script</p></div><div id="download-list" class="download-list"></div></section>
+    <footer><span>PeopleLedger · v2 project showcase</span><p>Synthetic demonstration data. Screenshots show the local reference edition. Deployment slides describe the cloud edition delivered in September 2026.</p></footer>
+  </main>
+</body>
+</html>

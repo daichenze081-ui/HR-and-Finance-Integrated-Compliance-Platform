@@ -1,0 +1,11 @@
+# Preserve document and media bytes across platforms.
+*.pdf binary
+*.docx binary
+*.pptx binary
+*.ppsx binary
+*.xlsx binary
+*.zip binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.mp3 binary

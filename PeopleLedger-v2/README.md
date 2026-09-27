@@ -1,91 +1,61 @@
-# PeopleLedger
+# PeopleLedger — integrated local review workspace
 
-**Integrated HR and Finance Review Workspace — English MVP, version 2**
+This is the maintained people application, using v2 sample data and local SQLite persistence. Authenticated case access, multi-stage approvals, evidence versions and recruitment are retained.
 
-PeopleLedger connects payroll, a financial ledger, bank statement rows and supporting files in a local database. Deterministic checks reconcile the records; a tool-calling AI Agent can inspect a pinned data snapshot and prepare a source-linked draft for finance review and director approval.
+## Start
 
-This version has a real Node.js backend and SQLite persistence. A fresh database starts with an empty workspace. The `examples/` folder contains fictional data for a repeatable demonstration.
-
-## Run the application
-
-Requires **Node.js 24 or later**. In the extracted project folder:
+Requires **Node.js 24+**. SQLite is built into Node; the only npm dependency remains `pg` for optional PostgreSQL support.
 
 ```sh
 npm ci
+npm run seed
 npm start
 ```
 
-Open `http://127.0.0.1:4173` and leave the server running. The first installation downloads the locked dependencies. File imports, reconciliation, evidence upload and rule reports work without an AI account.
+Open http://127.0.0.1:4173. Database: `var/peopleledger.sqlite`. Evidence: `var/evidence/`. Seed is repeatable and never replaces an existing case. An older payroll demo remains a separate case. Back up the database and evidence directory together with the server stopped.
 
-For the practical walkthrough, see [Getting started](START_HERE.md). For local AI setup and recording steps, see the [Demo script](docs/DEMO_SCRIPT.md).
+Demo password is `SEED_PASSWORD` (default `Demo!Passw0rd`):
 
-**The full backend must run.** Opening `dist/index.html` directly or uploading only `dist/` to static hosting does not run this version.
+| Responsibility | Account |
+|---|---|
+| HR edits | hr@peopleledger.demo |
+| Imports / preparation | preparer@peopleledger.demo |
+| Finance review | reviewer@peopleledger.demo |
+| Management confirmation | management@peopleledger.demo |
+| Approval / sealing | director@peopleledger.demo |
+| Administration | admin@peopleledger.demo |
 
-## Implemented scope
+## v2 sample data
 
-| Area | What works |
-| --- | --- |
-| Business-file integration | Excel `.xlsx` and UTF-8 CSV import for payroll, ledger and bank rows; preview, validation and dataset replacement |
-| Data persistence | SQLite stores imported records, history, uploaded evidence, Agent runs and report snapshots across browser and server restarts |
-| Reconciliation | Integer-cent payroll checks; exact reference, amount, currency and direction matching between ledger and bank; ambiguous matches remain unresolved |
-| Cross-dataset checks | Each employee payment links uniquely to a payroll expense; supporting evidence references must identify uploaded files |
-| Evidence | Upload and download PDF, PNG and JPEG files with SHA-256 hashes; reference-based links to payroll and ledger rows |
-| AI Agent | Six read-only tools, bounded model/tool loop, source-ID validation, saved traces and draft reports; Ollama and Amazon Bedrock adapters |
-| Human workflow | Finance review before director approval or return; required notes; old data snapshots cannot receive new decisions |
-| Output | Payroll CSV; review JSON containing records, metadata, reports and tool traces; individual evidence downloads; report print / Save PDF |
-| Interface | Seven English views: Overview, Data imports, Reconciliation, AI Agent, Reports & approvals, Evidence & history, Connections |
+The new September 2026 case uses `examples/payroll-corrected.csv`, `ledger-demo.csv`, `bank-demo.csv` and the supporting PDFs. Six salary payments, one sales receipt and one rent payment match eight bank rows. Income: SGD 50,000.00; expenses: SGD 39,100.00; net bank movement: SGD 10,900.00. PDFs are retained as evidence requiring manual content review.
 
-A live local Agent run was verified on **25 September 2026** with **`qwen3:4b-instruct`**. It called `bank_reconciliation` and `read_source`, correctly identified ledger SGD 4,950.00 versus bank SGD 4,750.00, stated the SGD 200.00 difference, cited both source records and saved a draft. The latest completed automated suite had **35 passing tests**. See [Validation evidence](docs/VALIDATION.md) for the run ID, timestamps and limits of these checks.
+Financial ledger imports accept native payment files or the v2 ledger schema, including sales and rent. Payroll rows must link to exactly one employee by payment reference, so import corrected payroll first. Bank imports accept native and v2 schemas. Both support CSV and XLSX. Only SGD is supported; unsupported currencies are rejected. Formulas and unsupported workbook features are rejected.
 
-A model name in the selector means it is available; **completed** activity with actual tool results and a saved draft verifies a run. Failed runs remain visible and do not produce a simulated AI answer.
+`payroll-demo.csv` and `bank-with-mismatch.csv` remain negative examples. Bank imports append rows; use a new case for a mismatch scenario instead of appending a second statement over the seeded one.
 
-## Import rules
+## Workflow
 
-- Import **1–500 data rows**, up to **5 MB** per CSV/XLSX file. Use the exact headers in the examples; column order may vary.
-- Import one payroll month at a time. IDs must be unique within each dataset. Payroll import/edit uses the **HR specialist** role; ledger and bank use **Finance reviewer**.
-- Import replaces only the selected dataset. It retains report snapshots and import history, and creates a new workspace revision. Preview expires after 15 minutes or becomes stale after another data change.
-- Ledger and bank rows support **SGD** only. Amounts are positive; `type` or `direction` determines inflow/outflow. Dates use `YYYY-MM-DD`.
-- Use `.xlsx`, not `.xls` or `.xlsm`. Convert formulas and errors to plain values, and store IDs/references as text to preserve leading zeros. Select the worksheet when a workbook has multiple populated sheets.
+Import / edit → checks and bank reconciliation → report draft → submit → finance review → management confirmation → director approval → seal → evidence ZIP.
 
-The clean example set has six employees, eight ledger entries and eight bank transactions. Expected net payroll is **SGD 35,100.00**; ledger income is **SGD 50,000.00**, expenses **SGD 39,100.00**, and net cash movement **SGD 10,900.00**. These are imported cash movements, not a full accrual profit and loss statement.
+Approval stages require separate users. Changes invalidate pending checks and reports. Exports use the selected report's frozen payroll, ledger, bank, import metadata, reconciliation and evidence versions. Older reports without financial snapshots say those inputs are unavailable; current data is never substituted.
 
-## Current boundaries
+## Connections
 
-- Reviewer selection is a **workflow simulation, not authentication**. The server validates the selected role and transitions, but no signed-in user identity exists. This is a single-user, loopback-only workspace.
-- AI drafts require human review. Source-ID validation checks whether cited rows exist; it does not prove that every generated statement is accurate. The Agent has no write, payment, approval, messaging or browsing tool.
-- Evidence hashes support comparison of file bytes; they do not establish authenticity. The Agent sees evidence metadata, not PDF/image contents. There is no OCR or document extraction.
-- The financial ledger is a simple income/expense dataset, not a complete double-entry accounting system. CPF, tax, statutory filings, automated bank feeds and payment execution are not implemented.
-- Microsoft Teams scheduling, recruitment/MyCareersFuture, and direct Xero, QuickBooks or ERP synchronization are not implemented. File import is the current integration path.
-- Amazon Bedrock has a server adapter but no connected account or verified live call. No AWS deployment, public deployment URL or GitHub repository URL has been created.
+Copy `.env.example` to `.env` only when customizing settings.
 
-## Data and configuration
+- SQLite is the default persistent database. PostgreSQL requires `DB_DRIVER=postgres`, `DATABASE_URL`, then `npm run migrate` and `npm run seed`. Missing PostgreSQL settings fail explicitly. Incremental migrations upgrade old databases without a reset.
+- Mock is the labelled default model. For local AI set `MODEL_DRIVER=ollama`, `OLLAMA_MODEL` to an installed tool-capable model and `OLLAMA_URL=http://127.0.0.1:11434`. Configuration alone does not establish that a real model works. Bedrock remains optional.
+- Recruitment remains available; Teams scheduling is simulated. The rules are demonstration bookkeeping checks, not statutory compliance calculations.
 
-The default database is `data/peopleledger.sqlite`. `.env` can override `PEOPLELEDGER_DB`, `PORT`, `OLLAMA_URL`, or the optional AWS settings shown in `.env.example`. The database directory and environment files are excluded from Git.
+## Checks and source packaging
 
-Browser refresh retains data because the backend owns the workspace. The earlier browser-local prototype's data is not migrated automatically. For a clean demonstration, stop the server and use a new database path; preserve the existing database first. To back up all records **and file bytes**, stop the application and copy its `data/` directory. The JSON export includes evidence metadata, not the uploaded file bytes.
-
-## Source and verification
-
-```text
-dist/                  English UI and shared payroll validation
-server/http.cjs        Loopback HTTP API and file routes
-server/imports.cjs     CSV/XLSX validation and normalization
-server/xlsx-worker.cjs Bounded Excel parsing worker
-server/business.cjs    Reconciliation, integrated rules and Agent tools
-server/store.cjs       SQLite persistence, snapshots and workflow decisions
-server/agent.cjs       Ollama / Bedrock tool-calling loop
-scripts/serve.cjs      Application entry point
-examples/              Fictional CSVs, workbooks and supporting PDFs
-tests/                 Core and backend integration tests
-docs/                  Architecture, demonstration, validation and AWS next steps
+```sh
+npm run check
+npm test
 ```
 
-Run `npm test` and `npm run check` to reproduce the code checks. The last completed suite passed all 35 tests. Automated checks exercise import validation, reconciliation, evidence persistence, revision handling, approvals and Agent-loop behavior with controlled adapters. They do not replace a live model run, account access test or deployment test.
+Most regression tests use isolated memory stores and mock models. SQLite tests additionally cover v2 matching, the approval chain, sessions after reopening, rollback, concurrent access and historical exports. Real PostgreSQL, a real model and browser interaction require their own integration checks.
 
-## Submission
+Do not remove individual files from `node_modules`. Exclude the whole generated directory, `.env`, runtime `var/` and old review copies when sharing source. Keep `package.json` and `package-lock.json`; restore dependencies using `npm ci`.
 
-Upload the project source to a repository in your own GitHub account. Include the lockfile, server code, tests and examples; exclude `node_modules/`, `.env`, local databases and model files. Add your actual team code, project name, demo video link and deployment evidence. A source ZIP is not a GitHub repository URL, and a localhost address is not a shareable deployment URL.
-
-See [AWS next steps](docs/AWS_NEXT_STEPS.md) before describing any AWS capability as deployed. No license has been selected; the team should choose its distribution terms before public publication.
-
-Known model limitation: a broader review produced incorrect counts and document claims despite valid source IDs. Review all narrative against deterministic results; see [validation evidence](docs/VALIDATION.md). The default request uses a focused ledger/bank pair check.
+The default homepage is the server workspace. The archived offline demo remains at `/demo/`.
